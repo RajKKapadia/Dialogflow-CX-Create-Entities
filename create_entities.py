@@ -17,9 +17,9 @@ def load_service_account_credentials(credentials_path: str) -> Credentials:
         return None
 
 
-def load_entities_from_json(json_file_path: str) -> Dict[str, Any] | None:
+def load_entities_from_json(entities_file_path: str) -> Dict[str, Any] | None:
     try:
-        with open(json_file_path, "r") as file:
+        with open(entities_file_path, "r") as file:
             entities_data = json.load(file)
         return entities_data
     except Exception as e:
@@ -88,7 +88,7 @@ def main():
     if not credentials:
         return
 
-    entities_data = load_entities_from_json(json_file_path=ENTITIES_JSON_FILE_PATH)
+    entities_data = load_entities_from_json(entities_file_path=ENTITIES_JSON_FILE_PATH)
     if not entities_data:
         return
 
